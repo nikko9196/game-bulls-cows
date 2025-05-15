@@ -3,7 +3,7 @@ package bullsandcows;
 import java.util.ArrayList;
 import java.util.List;
 
-public class VSComputer implements GameModeStrategy {
+public class VSComputer extends GameModeStrategy {
     private final Player humanPlayer;
     private final Computer opponent;
     private List<GuessRecord> guessRecords;
@@ -49,7 +49,7 @@ public class VSComputer implements GameModeStrategy {
             if (isHumanTurn && humanAttempts > 0) {
                 System.out.println(humanPlayer.getName() + "'s turn.");
 
-                boolean hasWon = GuessHandler.handleGuessProcess(computerSecretCode, humanPlayer, guessRecords);
+                boolean hasWon = handleGuessProcess(computerSecretCode, humanPlayer, guessRecords);
                 if (hasWon) {
                     winner = humanPlayer.getName();
                     return;

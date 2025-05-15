@@ -3,7 +3,7 @@ package bullsandcows;
 import java.util.ArrayList;
 import java.util.List;
 
-public class SinglePlayer implements GameModeStrategy {
+public class SinglePlayer extends GameModeStrategy {
     private final Player humanPlayer;
     private List<GuessRecord> guessRecords;
     private String computerSecretCode;
@@ -26,7 +26,7 @@ public class SinglePlayer implements GameModeStrategy {
 
         // While the user still has attempts: Check their guesses and see if they win:
         while (attemptRemaining > 0) {
-            boolean hasWon = GuessHandler.handleGuessProcess(computerSecretCode, humanPlayer, guessRecords);
+            boolean hasWon = handleGuessProcess(computerSecretCode, humanPlayer, guessRecords);
             if (hasWon) {
                 winner = humanPlayer.getName();
                 return;
