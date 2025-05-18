@@ -34,7 +34,7 @@ public class HexaComputer {
             char c = code.charAt(i);
             if (!Character.isLetterOrDigit(c)) {
                 return false;
-            } else if ((c < 'a' || c > 'f')) {
+            } else if ((c < 'a' || c > 'f') && (c < '0' || c > '9')) {
                 return false;
             } else if (!charSet.add(c)) {
                 return false;
