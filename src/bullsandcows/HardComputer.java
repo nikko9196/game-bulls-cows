@@ -32,7 +32,7 @@ public class HardComputer extends Computer{
     @Override
     public String makeGuess() {
         this.currentGuess = getRandomGuess();
-        //Print out to test
+        // Print out to test
         System.out.println(currentGuess);
         return currentGuess;
     }
@@ -46,13 +46,15 @@ public class HardComputer extends Computer{
     // Update possibleGuessList after the pruning process:
     private void updatePossibleGuessList(int[] resultGuessVsSecretCode){
         Set<String> newPossibleGuessList = new HashSet<>();
-        resultGuessVsCandidateGuess = CodeValidation.countBullsAndCows(currentGuess, candidateGuess);
-        for (String candidateGuess : possibleGuessList) {
+        for (String candidate : possibleGuessList) {
+            this.candidateGuess = candidate;
+            resultGuessVsCandidateGuess = CodeValidation.countBullsAndCows(currentGuess, candidateGuess);
             if (resultGuessVsSecretCode[0] == resultGuessVsCandidateGuess[0] && resultGuessVsSecretCode[1] == resultGuessVsCandidateGuess[1]) {
                 newPossibleGuessList.add(candidateGuess);
             }
         }
         possibleGuessList = newPossibleGuessList;
+        // Print out to test
         System.out.println("Updated possibleGuessList after each round: " + possibleGuessList);
     }
 
