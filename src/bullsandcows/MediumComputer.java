@@ -14,7 +14,7 @@ public class MediumComputer extends Computer {
         }
         previousGuesses.add(guess);
         // Print out - Use for testing:
-        System.out.println(previousGuesses);
+        System.out.println("***** List of previousGuess: " + previousGuesses + " *****");
         return guess;
     }
 }

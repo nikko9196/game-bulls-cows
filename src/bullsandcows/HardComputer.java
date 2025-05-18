@@ -2,7 +2,7 @@ package bullsandcows;
 
 import java.util.*;
 
-public class HardComputer extends Computer{
+public class HardComputer extends Computer {
     private String currentGuess;
     private String candidateGuess;
     private int[] resultGuessVsSecretCode;
@@ -10,30 +10,53 @@ public class HardComputer extends Computer{
     Set<String> possibleGuessList = new HashSet<>();
 
     //For testing the logic setup:
+//    public HardComputer() {
+//        possibleGuessList.add("1234");
+//        possibleGuessList.add("2345");
+//        possibleGuessList.add("0987");
+//        possibleGuessList.add("3456");
+//        possibleGuessList.add("8091");
+//        possibleGuessList.add("2697");
+//        possibleGuessList.add("4012");
+//        System.out.println("First possibleGuessList: " + possibleGuessList);
+//    }
+
     public HardComputer() {
-        possibleGuessList.add("1234");
-        possibleGuessList.add("2345");
-        possibleGuessList.add("0987");
-        possibleGuessList.add("3456");
-        possibleGuessList.add("8091");
-        possibleGuessList.add("2697");
-        possibleGuessList.add("4012");
-        System.out.println("First possibleGuessList: " + possibleGuessList);
+        possibleGuessList = generatePossibleGuessList();
+        // Print out for testing:
+        System.out.println("***** possibleGuessList's size: " + possibleGuessList.size() + " *****");
+        System.out.println("***** First possibleGuessList: " + possibleGuessList);
+    }
+
+    // Generate possibleGuessList:
+    private Set<String> generatePossibleGuessList() {
+        for (int i = 123; i <= 9876; i++) {
+            String possibleGuess = String.valueOf(i);
+            if (possibleGuess.length() != 4) {
+                possibleGuess = "0" + possibleGuess;
+            }
+            if (CodeValidation.isValidCode(possibleGuess)) {
+                possibleGuessList.add(possibleGuess);
+            }
+        }
+        return possibleGuessList;
     }
 
     //Get the random guess from the possibleGuessList:
-    private String getRandomGuess(){
+    private String getRandomGuess() {
         List<String> guessList = new ArrayList<>(possibleGuessList);
         Random rand = new Random();
         int index = rand.nextInt(possibleGuessList.size());
         return guessList.get(index);
-    };
+    }
+
+    ;
 
     @Override
     public String makeGuess() {
         this.currentGuess = getRandomGuess();
         // Print out to test
-        System.out.println(currentGuess);
+        System.out.println("***** Computer's currentGuess: " + currentGuess + " *****");
         return currentGuess;
     }
 
@@ -44,7 +67,7 @@ public class HardComputer extends Computer{
 //    }
 
     // Update possibleGuessList after the pruning process:
-    private void updatePossibleGuessList(int[] resultGuessVsSecretCode){
+    private void updatePossibleGuessList(int[] resultGuessVsSecretCode) {
         Set<String> newPossibleGuessList = new HashSet<>();
         for (String candidate : possibleGuessList) {
             this.candidateGuess = candidate;
@@ -55,7 +78,8 @@ public class HardComputer extends Computer{
         }
         possibleGuessList = newPossibleGuessList;
         // Print out to test
-        System.out.println("Updated possibleGuessList after each round: " + possibleGuessList);
+        System.out.println("***** possibleGuessList's size after each round: " + possibleGuessList.size() + " *****");
+        System.out.println("***** Updated possibleGuessList after each round: " + possibleGuessList + " *****");
     }
 
 
