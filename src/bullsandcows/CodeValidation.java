@@ -4,11 +4,21 @@ import java.util.HashSet;
 import java.util.Set;
 
 public class CodeValidation {
-    // Validate the user input when choosing the game options (Game Mode and Game Level):
-    public static boolean isValidOption(String input) {
+    // Validate the user input when choosing the game mode options:
+    public static boolean isValidOptionForGameMode(String input) {
         try {
             int number = Integer.parseInt(input);
             return (number >= 1 && number <= 2);
+        } catch (NumberFormatException e) {
+            return false;
+        }
+    }
+
+    // Validate the user input when choosing the game mode levels:
+    public static boolean isValidOptionForGameLevel(String input) {
+        try {
+            int number = Integer.parseInt(input);
+            return (number >= 1 && number <= 3);
         } catch (NumberFormatException e) {
             return false;
         }

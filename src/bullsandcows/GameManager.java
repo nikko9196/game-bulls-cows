@@ -22,7 +22,7 @@ public class GameManager {
             System.out.println("Press 2 for Player vs Computer.");
             gameModeInput = Keyboard.readInput().trim();
 
-            if (CodeValidation.isValidOption(gameModeInput)) {
+            if (CodeValidation.isValidOptionForGameMode(gameModeInput)) {
                 break;
             } else {
                 System.out.println("Invalid input!");
@@ -40,9 +40,10 @@ public class GameManager {
                 System.out.println("Please choose your game level:");
                 System.out.println("Press 1 for EASY.");
                 System.out.println("Press 2 for MEDIUM.");
+                System.out.println("Press 3 for HARD.");
                 gameLevelInput = Keyboard.readInput().trim();
 
-                if (CodeValidation.isValidOption(gameLevelInput)) {
+                if (CodeValidation.isValidOptionForGameLevel(gameLevelInput)) {
                     break;
                 } else {
                     System.out.println("Invalid input!");
@@ -52,8 +53,10 @@ public class GameManager {
             Computer computer;
             if (gameLevelInput.equals("1")) {
                 computer = new EasyComputer();
-            } else {
+            } else if (gameLevelInput.equals("2")) {
                 computer = new MediumComputer();
+            } else {
+                computer = new HardComputer();
             }
             VSComputer gameMode = new VSComputer(humanPlayer, computer);
             gameMode.play();
