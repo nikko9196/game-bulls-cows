@@ -14,6 +14,16 @@ public class CodeValidation {
         }
     }
 
+    // Validate the user input when choosing how many digits of secret code the player wants to play with:
+    public static boolean isValidOptionSecretCodeDigits(String input) {
+        try {
+            int number = Integer.parseInt(input);
+            return (number >= 1 && number <= 2);
+        } catch (NumberFormatException e) {
+            return false;
+        }
+    }
+
     // Validate the user input when choosing the game mode levels:
     public static boolean isValidOptionForGameLevel(String input) {
         try {

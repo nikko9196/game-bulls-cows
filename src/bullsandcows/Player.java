@@ -10,8 +10,6 @@ public abstract class Player {
         attempt = 7;
     }
 
-    public abstract String generateSecretCode();
-
     public String getName() {
         return name;
     }

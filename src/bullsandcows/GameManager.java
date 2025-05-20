@@ -30,7 +30,28 @@ public class GameManager {
         }
 
         if (gameModeInput.equals("1")) {
-            SinglePlayer gameMode = new SinglePlayer(humanPlayer);
+            String secretCodeDigitInput;
+            while (true) {
+                System.out.println("Please choose how many digits of secret code that you want to play:");
+                System.out.println("Press 1 for FOUR-DIGIT secret code.");
+                System.out.println("Press 2 for SIX-DIGIT secret code.");
+                secretCodeDigitInput = Keyboard.readInput().trim();
+
+                if (CodeValidation.isValidOptionSecretCodeDigits(secretCodeDigitInput)) {
+                    break;
+                } else {
+                    System.out.println("Invalid input!");
+                }
+            }
+
+            EasyComputer secretCodeDigit;
+            if (secretCodeDigitInput.equals("1")) {
+                secretCodeDigit = new FourDigitComputer();
+            } else {
+                secretCodeDigit = new SixDigitComputer();
+            }
+
+            SinglePlayer gameMode = new SinglePlayer(humanPlayer, secretCodeDigit);
             gameMode.play();
             requestToSaveResult(gameMode, "Single Player", "");
 
@@ -52,7 +73,7 @@ public class GameManager {
 
             Computer computer;
             if (gameLevelInput.equals("1")) {
-                computer = new EasyComputer();
+                computer = new FourDigitComputer();
             } else if (gameLevelInput.equals("2")) {
                 computer = new MediumComputer();
             } else {

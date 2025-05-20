@@ -10,8 +10,7 @@ public abstract class Computer extends Player {
         super(DEFAULT_NAME);
     }
 
-    @Override
-    public String generateSecretCode() {
+    protected String generateSecretCode() {
         StringBuilder secretCode = new StringBuilder();
         boolean[] usedDigits = new boolean[10];
 
