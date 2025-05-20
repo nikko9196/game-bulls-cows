@@ -44,14 +44,14 @@ public class GameManager {
                 }
             }
 
-            EasyComputer secretCodeDigit;
+            EasyComputer digitOptionEasyComputer;
             if (secretCodeDigitInput.equals("1")) {
-                secretCodeDigit = new FourDigitComputer();
+                digitOptionEasyComputer = new FourDigitEasyComputer();
             } else {
-                secretCodeDigit = new SixDigitComputer();
+                digitOptionEasyComputer = new SixDigitEasyComputer();
             }
 
-            SinglePlayer gameMode = new SinglePlayer(humanPlayer, secretCodeDigit);
+            SinglePlayer gameMode = new SinglePlayer(humanPlayer, digitOptionEasyComputer);
             gameMode.play();
             requestToSaveResult(gameMode, "Single Player", "");
 
@@ -73,7 +73,7 @@ public class GameManager {
 
             Computer computer;
             if (gameLevelInput.equals("1")) {
-                computer = new FourDigitComputer();
+                computer = new FourDigitEasyComputer();
             } else if (gameLevelInput.equals("2")) {
                 computer = new MediumComputer();
             } else {

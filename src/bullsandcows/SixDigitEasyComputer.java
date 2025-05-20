@@ -8,11 +8,13 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class SixDigitComputer extends EasyComputer {
+public class SixDigitEasyComputer extends EasyComputer {
     private String secretCode;
 
     @Override
     public String getSecretCode() {
+        HexaComputer hexaComputer = new HexaComputer();
+        
 
         return "";
     }
