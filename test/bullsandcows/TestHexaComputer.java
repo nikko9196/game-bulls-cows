@@ -58,4 +58,11 @@ public class TestHexaComputer {
         assertThrows(IndexOutOfBoundsException.class, () -> hexaComputer.getCode(-1));
         assertEquals("edf456", hexaComputer.getCode(0));
         assertEquals("123abc", hexaComputer.getCode(1));
-        assertThrows(IndexOutOfBoundsException.class, () -> hexaComputer.get
+        assertThrows(IndexOutOfBoundsException.class, () -> hexaComputer.getCode(2));
+    }
+
+
+}
+
+
+
