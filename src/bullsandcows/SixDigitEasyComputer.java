@@ -7,16 +7,34 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 public class SixDigitEasyComputer extends EasyComputer {
     private String secretCode;
 
     @Override
     public String getSecretCode() {
-        HexaComputer hexaComputer = new HexaComputer();
-        
+        List<String> codes = processFile("hexadecimals.txt");
+        HexaComputer hexaComputer = new HexaComputer(codes);
 
-        return "";
+        // Determine the size of 6-digit code list after validation:
+        // (As we cannot modify HexaComputer.java to add the method getSize())
+        int size = 0;
+        while (true) {
+            try {
+                hexaComputer.getCode(size);
+                size++;
+            } catch (IndexOutOfBoundsException e) {
+                break;
+            }
+        }
+        // For testing
+        System.out.println("Size of 6-digit code list after validation: " + size);
+
+        Random random = new Random();
+        int randomIndex = random.nextInt(size);
+        secretCode = hexaComputer.getCode(randomIndex);
+        return secretCode;
     }
 
     @Override
@@ -24,17 +42,18 @@ public class SixDigitEasyComputer extends EasyComputer {
         return "";
     }
 
-    private void processFile(String filePath) {
+    private List<String> processFile(String filePath) {
         List<String> codes = new ArrayList<>();
         try (BufferedReader bR = new BufferedReader(new FileReader(filePath))) {
-            String code = bR.readLine();
+            String code;
             while ((code = bR.readLine()) != null) {
                 codes.add(code);
             }
-        } catch(FileNotFoundException e) {
+        } catch (FileNotFoundException e) {
             System.out.println("File not found: " + e.getMessage());
         } catch (IOException e) {
             System.out.println("Error: " + e.getMessage());
         }
+        return codes;
     }
 }
