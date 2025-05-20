@@ -51,6 +51,16 @@ public class GameManager {
                 digitOptionEasyComputer = new SixDigitEasyComputer();
             }
 
+            // Test if the player chooses to play with 6-character code:
+            // If the game cannot find the file, return to the beginning of the game.
+            String computerSecretCode = digitOptionEasyComputer.getSecretCode();
+            if (computerSecretCode == null) {
+                System.out.println("There is a problem to generate the secret code. Returning to the main menu ...");
+                System.out.println("--------------------------------------------");
+                start();
+                return;
+            }
+
             SinglePlayer gameMode = new SinglePlayer(humanPlayer, digitOptionEasyComputer);
             gameMode.play();
             requestToSaveResult(gameMode, "Single Player", "");

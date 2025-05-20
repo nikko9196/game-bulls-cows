@@ -14,7 +14,14 @@ public class SixDigitEasyComputer extends EasyComputer {
 
     @Override
     public String getSecretCode() {
-        List<String> codes = processFile("hexadecimals.txt");
+        List<String> codes;
+        try {
+            codes = processFile("hexadecimals.txt");
+        } catch (IOException e) {
+            System.out.println("Error at getSecretCode(): " + e.getMessage());
+            return null;
+        }
+
         HexaComputer hexaComputer = new HexaComputer(codes);
 
         // Determine the size of 6-digit code list after validation:
@@ -42,7 +49,7 @@ public class SixDigitEasyComputer extends EasyComputer {
         return "";
     }
 
-    private List<String> processFile(String filePath) {
+    private List<String> processFile(String filePath) throws FileNotFoundException {
         List<String> codes = new ArrayList<>();
         try (BufferedReader bR = new BufferedReader(new FileReader(filePath))) {
             String code;
@@ -50,9 +57,9 @@ public class SixDigitEasyComputer extends EasyComputer {
                 codes.add(code);
             }
         } catch (FileNotFoundException e) {
-            System.out.println("File not found: " + e.getMessage());
+            throw e;
         } catch (IOException e) {
-            System.out.println("Error: " + e.getMessage());
+            System.out.println("Error at processFile(): " + e.getMessage());
         }
         return codes;
     }
