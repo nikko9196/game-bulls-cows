@@ -18,8 +18,6 @@ public class SinglePlayer extends GameModeStrategy {
 
     @Override
     public void play() {
-        // Intro of the game mode Single Player:
-//        Computer computer = new FourDigitComputer();
         int attemptRemaining = 7;
         System.out.println("Starting Single Player Mode ...");
         System.out.println(computer.getName() + " is generating the secret code ...");
