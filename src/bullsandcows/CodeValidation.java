@@ -4,8 +4,8 @@ import java.util.HashSet;
 import java.util.Set;
 
 public class CodeValidation {
-    // Validate the user input when choosing the game mode options:
-    public static boolean isValidOptionForGameMode(String input) {
+    // Validate the user input when there are 2 options to choose (Eg. For Game Mode and Digit Code options):
+    public static boolean isValidOptionForTwoChoices(String input) {
         try {
             int number = Integer.parseInt(input);
             return (number >= 1 && number <= 2);
@@ -14,18 +14,9 @@ public class CodeValidation {
         }
     }
 
-    // Validate the user input when choosing how many digits of secret code the player wants to play with:
-    public static boolean isValidOptionSecretCodeDigits(String input) {
-        try {
-            int number = Integer.parseInt(input);
-            return (number >= 1 && number <= 2);
-        } catch (NumberFormatException e) {
-            return false;
-        }
-    }
 
-    // Validate the user input when choosing the game mode levels:
-    public static boolean isValidOptionForGameLevel(String input) {
+    // Validate the user input when there are 3 options to choose (Eg. For Game Level options):
+    public static boolean isValidOptionForThreeChoices(String input) {
         try {
             int number = Integer.parseInt(input);
             return (number >= 1 && number <= 3);
@@ -33,6 +24,7 @@ public class CodeValidation {
             return false;
         }
     }
+
 
     // Validate the user input when deciding to save a game result or not:
     public static boolean isValidYesNoInput(String input) {
@@ -42,8 +34,9 @@ public class CodeValidation {
                 input.equalsIgnoreCase("NO");
     }
 
+
     // 4-digit secret code: Check the entered guess is valid or not:
-    public static boolean isValidCode(String input) {
+    public static boolean isValidCodeForFourDigitCode(String input) {
         if (input.length() != 4 || !input.matches("\\d{4}")) {
             return false;
         }
@@ -57,7 +50,15 @@ public class CodeValidation {
         return true;
     }
 
+
     // 6-digit secret code: Check the entered guess is valid or not:
+    /**
+     * As mentioned in the task 5's requirement:
+     * "You may move the HexaComputer class to an appropriate package that fits your game structure.
+     * However, you should not modify anything else in the class."
+     * isValidCode() under HexaComputer cannot be re-used as it is a private method.
+     * Therefore, isValidCodeForSixDigitCode() is re-created as a static method here.
+     */
     public static boolean isValidCodeForSixDigitCode(String code) {
         if (code.length() != 6) {
             return false;
@@ -76,15 +77,12 @@ public class CodeValidation {
         return true;
     }
 
+
     // Check the Bulls and Counts result:
     public static int[] countBullsAndCows(String secretCode, String guess) {
         int bulls = 0;
         int cows = 0;
 
-//        int[] secretDigits = new int[10];
-//        int[] guessDigits = new int[10];
-
-        // Count Bulls:
         for (int i = 0; i < secretCode.length(); i++) {
             if (secretCode.charAt(i) == guess.charAt(i)) {
                 bulls++;
@@ -92,11 +90,6 @@ public class CodeValidation {
                 cows++;
             }
         }
-
-//        // Count Cows:
-//        for (int i = 0; i < secretDigits.length; i++) {
-//            cows += Math.min(secretDigits[i], guessDigits[i]);
-//        }
 
         return new int[]{bulls, cows};
     }

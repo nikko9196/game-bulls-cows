@@ -34,7 +34,7 @@ public class VSComputer extends GameModeStrategy {
         while (true) {
             System.out.println("Please enter your secret code: ");
             playerSecretCode = Keyboard.readInput().trim();
-            if (CodeValidation.isValidCode(playerSecretCode)) {
+            if (CodeValidation.isValidCodeForFourDigitCode(playerSecretCode)) {
                 break;
             }
             System.out.println("Invalid secret code! It should be 4-digit number with all digits are unique, and has no spacing.");

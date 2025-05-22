@@ -22,7 +22,7 @@ public class GameManager {
             System.out.println("Press 2 for Player vs Computer.");
             gameModeInput = Keyboard.readInput().trim();
 
-            if (CodeValidation.isValidOptionForGameMode(gameModeInput)) {
+            if (CodeValidation.isValidOptionForTwoChoices(gameModeInput)) {
                 break;
             } else {
                 System.out.println("Invalid input!");
@@ -37,7 +37,7 @@ public class GameManager {
                 System.out.println("Press 2 for SIX-DIGIT secret code.");
                 secretCodeDigitInput = Keyboard.readInput().trim();
 
-                if (CodeValidation.isValidOptionSecretCodeDigits(secretCodeDigitInput)) {
+                if (CodeValidation.isValidOptionForTwoChoices(secretCodeDigitInput)) {
                     break;
                 } else {
                     System.out.println("Invalid input!");
@@ -73,7 +73,7 @@ public class GameManager {
                 System.out.println("Press 3 for HARD.");
                 gameLevelInput = Keyboard.readInput().trim();
 
-                if (CodeValidation.isValidOptionForGameLevel(gameLevelInput)) {
+                if (CodeValidation.isValidOptionForThreeChoices(gameLevelInput)) {
                     break;
                 } else {
                     System.out.println("Invalid input!");

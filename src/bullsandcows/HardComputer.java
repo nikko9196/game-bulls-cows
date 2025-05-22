@@ -35,7 +35,7 @@ public class HardComputer extends Computer {
             if (possibleGuess.length() != 4) {
                 possibleGuess = "0" + possibleGuess;
             }
-            if (CodeValidation.isValidCode(possibleGuess)) {
+            if (CodeValidation.isValidCodeForFourDigitCode(possibleGuess)) {
                 possibleGuessList.add(possibleGuess);
             }
         }

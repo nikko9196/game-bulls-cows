@@ -30,7 +30,7 @@ public abstract class GameModeStrategy {
                 }
 
             } else {
-                isValidGuess = CodeValidation.isValidCode(humanGuess);
+                isValidGuess = CodeValidation.isValidCodeForFourDigitCode(humanGuess);
                 if (!isValidGuess) {
                     System.out.println("Your guess " + humanGuess + " is invalid. It should be a 4-digit number with all digits are unique, and has no spacing. Please try again!");
                 }
