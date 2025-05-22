@@ -115,7 +115,6 @@ public class GameManager {
 
             System.out.println("Your result is saving ...");
             gameLog.saveToFile(fileName, gameModeType, playerSecretCode, gameMode.getComputerSecretCode(), gameMode.getGuessRecords(), gameMode.getWinner());
-
         }
         System.out.println("Thank you for playing the game. Bye bye!");
     }

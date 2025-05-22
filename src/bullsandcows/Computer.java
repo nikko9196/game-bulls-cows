@@ -42,5 +42,4 @@ public abstract class Computer extends Player {
 
         return code.toString();
     }
-
 }

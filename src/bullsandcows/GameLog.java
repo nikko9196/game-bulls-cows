@@ -63,6 +63,5 @@ public class GameLog {
             System.out.println("Sorry, we were unable to save your game result. Please check the file name or try again!");
             System.out.println("Error: " + e.getMessage());
         }
-
     }
 }

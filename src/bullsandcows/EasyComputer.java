@@ -7,6 +7,4 @@ public abstract class EasyComputer extends Computer {
     public boolean isSecretCodeAvailable() {
         return getSecretCode() != null;
     }
-
-
 }

@@ -105,6 +105,4 @@ public class VSComputer extends GameModeStrategy {
     }
 
     public String getPlayerSecretCode() {
-        return playerSecretCode;
-    }
-}
+        return 
