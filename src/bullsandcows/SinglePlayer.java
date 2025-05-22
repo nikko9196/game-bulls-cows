@@ -56,3 +56,7 @@ public class SinglePlayer extends GameModeStrategy {
 
     public String getComputerSecretCode() {
         return computerSecretCode;
+    }
+
+
+}

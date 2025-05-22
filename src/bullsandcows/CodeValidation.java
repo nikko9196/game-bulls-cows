@@ -78,4 +78,19 @@ public class CodeValidation {
     }
 
 
-    // Check the Bul
+    // Check the Bulls and Counts result:
+    public static int[] countBullsAndCows(String secretCode, String guess) {
+        int bulls = 0;
+        int cows = 0;
+
+        for (int i = 0; i < secretCode.length(); i++) {
+            if (secretCode.charAt(i) == guess.charAt(i)) {
+                bulls++;
+            } else if (secretCode.contains(String.valueOf(guess.charAt(i)))) {
+                cows++;
+            }
+        }
+
+        return new int[]{bulls, cows};
+    }
+}
