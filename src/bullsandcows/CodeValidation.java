@@ -52,7 +52,6 @@ public class CodeValidation {
 
 
     // 6-digit secret code: Check the entered guess is valid or not:
-
     /**
      * As mentioned in the task 5's requirement:
      * "You may move the HexaComputer class to an appropriate package that fits your game structure.
