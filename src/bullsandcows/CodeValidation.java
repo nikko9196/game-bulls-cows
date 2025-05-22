@@ -42,7 +42,7 @@ public class CodeValidation {
                 input.equalsIgnoreCase("NO");
     }
 
-    // Check the entered guess is valid or not:
+    // 4-digit secret code: Check the entered guess is valid or not:
     public static boolean isValidCode(String input) {
         if (input.length() != 4 || !input.matches("\\d{4}")) {
             return false;
@@ -57,28 +57,46 @@ public class CodeValidation {
         return true;
     }
 
+    // 6-digit secret code: Check the entered guess is valid or not:
+    public static boolean isValidCodeForSixDigitCode(String code) {
+        if (code.length() != 6) {
+            return false;
+        }
+        HashSet<Character> charSet = new HashSet<>();
+        for (int i = 0; i < code.length(); i++) {
+            char c = code.charAt(i);
+            if (!Character.isLetterOrDigit(c)) {
+                return false;
+            } else if ((c < 'a' || c > 'f') && (c < '0' || c > '9')) {
+                return false;
+            } else if (!charSet.add(c)) {
+                return false;
+            }
+        }
+        return true;
+    }
+
     // Check the Bulls and Counts result:
     public static int[] countBullsAndCows(String secretCode, String guess) {
         int bulls = 0;
         int cows = 0;
 
-        int[] secretDigits = new int[10];
-        int[] guessDigits = new int[10];
+//        int[] secretDigits = new int[10];
+//        int[] guessDigits = new int[10];
 
         // Count Bulls:
         for (int i = 0; i < secretCode.length(); i++) {
             if (secretCode.charAt(i) == guess.charAt(i)) {
                 bulls++;
-            } else {
-                secretDigits[Character.getNumericValue(secretCode.charAt(i))]++;
-                guessDigits[Character.getNumericValue(guess.charAt(i))]++;
+            } else if (secretCode.contains(String.valueOf(guess.charAt(i)))) {
+                cows++;
             }
         }
 
-        // Count Cows:
-        for (int i = 0; i < secretDigits.length; i++) {
-            cows += Math.min(secretDigits[i], guessDigits[i]);
-        }
+//        // Count Cows:
+//        for (int i = 0; i < secretDigits.length; i++) {
+//            cows += Math.min(secretDigits[i], guessDigits[i]);
+//        }
 
         return new int[]{bulls, cows};
     }

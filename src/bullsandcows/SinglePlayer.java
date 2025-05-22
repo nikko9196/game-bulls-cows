@@ -29,7 +29,7 @@ public class SinglePlayer extends GameModeStrategy {
 
         // While the user still has attempts: Check their guesses and see if they win:
         while (attemptRemaining > 0) {
-            boolean hasWon = handleGuessProcess(computerSecretCode, humanPlayer, guessRecords);
+            boolean hasWon = handleGuessProcess(computerSecretCode, humanPlayer, guessRecords, computer);
             if (hasWon) {
                 winner = humanPlayer.getName();
                 return;

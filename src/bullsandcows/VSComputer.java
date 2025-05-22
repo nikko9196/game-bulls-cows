@@ -50,7 +50,7 @@ public class VSComputer extends GameModeStrategy {
             if (isHumanTurn && humanAttempts > 0) {
                 System.out.println(humanPlayer.getName() + "'s turn.");
 
-                boolean hasWon = handleGuessProcess(computerSecretCode, humanPlayer, guessRecords);
+                boolean hasWon = handleGuessProcess(computerSecretCode, humanPlayer, guessRecords, opponent);
                 if (hasWon) {
                     winner = humanPlayer.getName();
                     return;
