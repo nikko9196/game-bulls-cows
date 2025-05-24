@@ -7,7 +7,7 @@ Write your reflection in this document.
 _________________
 ## My answer:
 ### 1. Which task(s) did you find the most challenging?
-I found Task 5 to be the most challenging. It is not because the task itself was difficult, but because the process of applying the necessary logic to meet the requirements was quite complex. It required significant time and effort to refactor the existing code than other tasks, which was originally designed to support 4-digit codes for both `SinglePlayer` mode and `VSComputer` mode (with Easy, Medium, and Hard difficulty levels).
+I found Task 5 to be the most challenging. It is not because the task itself was difficult, but because the process of applying the necessary logic to meet the requirements was quite complex. It required significant time and effort to refactor the existing code than other tasks, which were originally designed to support 4-digit codes for both `SinglePlayer` mode and `VSComputer` mode (with Easy, Medium, and Hard difficulty levels).
 
 **What I needed to do:**
 - Convert `EasyComputer` into a public abstract class, and create two subclasses: `FourDigitEasyComputer` and `SixDigitEasyComputer`.
@@ -39,7 +39,7 @@ Unfortunately, I later realised that the `isValidCode()` method in `HexaComputer
 
 _________________
 ### 2. Briefly describe the scenarios you have covered when testing the HexaComputer class.
-When testing the HexaComputer class, these are cases that I tried to cover:
+When testing the `HexaComputer` class, these are cases that I tried to cover:
 - **testNullCodeListThrowException()**: This test checks the behaviour when the programme cannot find the code list, resulting in a `null` value. In this case, the method should throw an `IllegalArgumentException`.
 - **testEmptyCodeListThrowException()**: This test verifies that if the code list exists but is empty (i.e., contains no elements), the programme correctly throws an `IllegalArgumentException`.
 - **testAllInvalidCodesThrowException()**: I tried to create a list including those invalid codes, which fail the validation checks within the `HexaComputer` class. As a result, the final validated code list is empty, and an `IllegalArgumentException` is thrown. The invalid cases I tested include:
@@ -61,7 +61,7 @@ _________________
 ### 3. If there are any bugs in Task Four, briefly explain the bugs and how you have identified such bugs.
 There is one bug in **Task Four**, which the class doesn’t cover enough condition for the valid code. The requirement for `HexaComputer` class is to manage a list of hexadecimal codes, ensuring that only valid codes, which are exactly six unique characters and the allowed characters for the codes are numbers (0-9) and letters (a-f), are stored.
 
-However, **on line 37 in `HexaComputer.java`**, the condition else if `((c < 'a' || c > 'f')) { return false; }` incorrectly treats **any character outside the range 'a' to 'f' as invalid**. This means digits from 0 to 9 are also considered invalid, even though they should be allowed, causing any code containing numbers to be incorrectly rejected.
+However, **on line 37 in `HexaComputer.java`**, the condition `else if ((c < 'a' || c > 'f')) { return false; }` incorrectly treats **any character outside the range 'a' to 'f' as invalid**. This means digits from 0 to 9 are also considered invalid, even though they should be allowed, causing any code containing numbers to be incorrectly rejected.
 
 I recognised this bug when I was writing the unit test **testAllValidCodesPassValidation()**:
 ### **Screenshot 1:**
@@ -104,9 +104,9 @@ My final implementation differs significantly from the initial design in Part A,
 - These now inherit from their respective parent classes: `SinglePlayer` and `VSComputer` extend from `GameModeStrategy` (which I changed from an interface to an abstract class in Part B), and `EasyComputer`, `MediumComputer`, and later `HardComputer` inherit from the `Computer` superclass. 
 - This shift was based on Jordan’s feedback, and I’m really grateful for that advice. As I progressed through the assignment, I realised how much easier it became to add new features—such as introducing `HardComputer` or allowing the game to support a 6-digit secret code.
 
-**This improvement also reflects good separation of concerns:Each class has a clear and distinct responsibility.**
+**This improvement also reflects good separation of concerns: Each class has a clear and distinct responsibility.**
 - As a result, adding new features doesn’t require major changes to existing code. For example, if I want to add a new difficulty level or allow SinglePlayer to support a 6-digit code, I can do that without affecting the functionality of existing components like `EasyComputer` and `MediumComputer`. 
-- Even the `GameLog` and `GameManager` features I originally built in Part A—to ask players whether they want to save their game results still work as expected with the new features in Part B, despite the fact that saving results wasn’t a requirement in this part of the assignment.
+- Even the `GameLog` and `GameManager` features I originally built in Part A to ask players whether they want to save their game results still work as expected with the new features (adding `HardComputer` or playing with 6-digit code) in Part B, despite the fact that saving results wasn’t a requirement in this part of the assignment.
 
 **That said, one limitation I encountered was not being allowed to modify `HexaComputer.java`. This restriction made it harder to reuse some logic cleanly.** 
 - As a result, I had to duplicate some of the validation logic for 6-digit codes that already existed in `HexaComputer.java` into `CodeValidation.java` **(Mentioned in the answer for Question 1)**. This redundancy is not ideal and slightly weakens the overall quality of my implementation.
@@ -117,20 +117,20 @@ _________________
 Similar as I mentioned in Part A of Assignment 2, I continued to use ChatGPT as a Generative AI tool to support my learning in Part B as well. For example, when I wrote code that seemed logically correct but still had bugs I couldn’t easily identify, I would quickly consult ChatGPT. It helped me discover small but critical issues that I might have otherwise missed, preventing potential breakdowns in the code.
 
 The external resources I used for Part B of Assignment 2 include:
-- **Lecture recordings and slides:** I consistently reviewed lessons, revisited my annotated slides, and referenced examples shared in lectures. I adapted and modified these examples to fit my coding scenarios, which helped me better understand the concepts and apply them correctly in the assignments.
-- **Week 8 - Tuesday lecture by Yu-Cheng:** I re-watched the session where Yu-Cheng introduced Assignment 2B and demonstrated Task 3 – Hard AI. Based on her detailed explanation of how the HardAI example works step-by-step, I was able to gradually build the logic needed to solve Task 3. This clear walkthrough helped me understand the process thoroughly, which in turn guided me to design my UML diagram with the necessary fields and methods to implement that logic effectively.
-- **Lab exercises:** I reviewed Lab 12 to study the example test case provided for RobotTest. By examining how the test was written and what cases it covered, I was able to learn effective testing techniques. I then applied this understanding to Task 4 by writing tests for HexaComputer.java based on those principles.
+- **Lecture recordings and slides:** I consistently reviewed lessons, revisited my annotated slides, and referenced examples shared in lectures. I adapted and modified these examples to fit my coding scenarios, which helped me better understand the concepts and apply them correctly in the assignment.
+- **Week 8 - Tuesday lecture by Yu-Cheng:** I re-watched the session where Yu-Cheng introduced Assignment 2B and demonstrated **Task 3 – Hard AI**. Based on her detailed explanation of how the HardAI example works step-by-step, I was able to gradually build the logic needed to solve **Task 3**. This clear walkthrough helped me understand the process thoroughly, which in turn guided me to design my UML diagram with the necessary fields and methods to implement that logic effectively.
+- **Lab exercises:** I reviewed Lab 12 to study the example test case provided for `RobotTest`. By examining how the test was written and what cases it covered, I was able to learn effective testing techniques. I then applied this understanding to **Task 4** by writing tests for `HexaComputer.java` based on those principles.
 - **IntelliJ with AI assistant for code writing:** As I mentioned in Assignment 2A, IntelliJ continued to be a valuable assistant. Beyond auto-completing code snippets and speeding up my coding, it also highlighted duplicated code sections, helping me stay aware and avoid redundancy. Additionally, IntelliJ suggested when some fields I created were unnecessary and recommended using local variables instead, which helped me write cleaner and more efficient code.
 
 Without these external resources above, I believe completing **Tasks 3, 4 and 5** would have taken me significantly longer. Moreover, my code would likely be longer and less clean, which is an ongoing concern for me. I understand that writing clean, maintainable code is important, especially when future updates or debugging might be needed.
 
 _________________
 ### 8. If you have time to extend this assignment, what would you do?
-If I have ime to extend this assignment, I have some ideas that I would do:
+If I have time to extend this assignment, I have some ideas that I would do:
 1. **Enhancing the UX/UI of the game:**
    - **User Interface:** I would use Java Swing, which was taught in class, to build a simple graphical user interface (GUI) for the Bulls and Cows game.
    - **User Experience:**
      - With a GUI and buttons, users could easily select game modes, difficulty levels, and other options instead of relying on keyboard inputs like pressing 1, 2, or 3.
      - Improve feedback messages for invalid guesses by separating them in different scenarios, such as when a user enters duplicate characters/digits or when the guess length is shorter or longer than expected.
-2. **Adding a Time Challenge mode:** For example, giving the player 60 seconds and 7 attempts to guess the secret code in Single Player mode.
+2. **Adding a Time Challenge mode:** For example, giving the player 60 seconds and 7 attempts to guess the secret code in `SinglePlayer` mode.
 3. **Implementing a Leaderboard feature:** Track and display records for fastest wins or fewest attempts to complete the game.
