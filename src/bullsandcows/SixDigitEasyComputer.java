@@ -9,7 +9,6 @@ import java.util.List;
 import java.util.Random;
 
 public class SixDigitEasyComputer extends EasyComputer {
-    private String secretCode;
 
     @Override
     public String getSecretCode() {
@@ -39,8 +38,7 @@ public class SixDigitEasyComputer extends EasyComputer {
 
         Random random = new Random();
         int randomIndex = random.nextInt(size);
-        secretCode = hexaComputer.getCode(randomIndex);
-        return secretCode;
+        return hexaComputer.getCode(randomIndex);
     }
 
     @Override

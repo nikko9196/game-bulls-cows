@@ -3,9 +3,9 @@ package bullsandcows;
 import java.util.List;
 
 public abstract class GameModeStrategy {
-    protected List<GuessRecord> guessRecords;
-    protected String winner;
-    protected String computerSecretCode;
+//    protected List<GuessRecord> guessRecords;
+//    protected String winner;
+//    protected String computerSecretCode;
 
     public abstract void play();
 

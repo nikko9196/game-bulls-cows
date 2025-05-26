@@ -76,6 +76,7 @@ public class VSComputer extends GameModeStrategy {
 
                 if (result[0] == 4) {
                     System.out.println(opponent.getName() + " guessed your code. You lose!");
+                    System.out.println(opponent.getName() + "'secret code was: " + computerSecretCode);
                     winner = opponent.getName();
                     return;
                 }

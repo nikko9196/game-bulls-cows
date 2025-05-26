@@ -1,0 +1,36 @@
+Bulls & Cows Game's Result:
+Game mode: Player vs Computer
+Your secret code: 6937
+Alexis The Computer's secret code: 0864
+----------
+Turn 1:
+Nikko guessed 1234, scoring 1 bulls and 0 cows.
+Alexis The Computer guessed 3765, scoring 0 bulls and 3 cows.
+
+----------
+Turn 2:
+Nikko guessed 1567, scoring 1 bulls and 0 cows.
+Alexis The Computer guessed 5647, scoring 1 bulls and 1 cows.
+
+----------
+Turn 3:
+Nikko guessed 1890, scoring 1 bulls and 1 cows.
+Alexis The Computer guessed 6137, scoring 3 bulls and 0 cows.
+
+----------
+Turn 4:
+Nikko guessed 2680, scoring 0 bulls and 3 cows.
+Alexis The Computer guessed 6037, scoring 3 bulls and 0 cows.
+
+----------
+Turn 5:
+Nikko guessed 9837, scoring 1 bulls and 0 cows.
+Alexis The Computer guessed 6837, scoring 3 bulls and 0 cows.
+
+----------
+Turn 6:
+Nikko guessed 4679, scoring 0 bulls and 2 cows.
+Alexis The Computer guessed 6937, scoring 4 bulls and 0 cows.
+
+----------
+Winner: Alexis The Computer.

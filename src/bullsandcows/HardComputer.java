@@ -4,9 +4,6 @@ import java.util.*;
 
 public class HardComputer extends Computer {
     private String currentGuess;
-    private String candidateGuess;
-    private int[] resultGuessVsSecretCode;
-    private int[] resultGuessVsCandidateGuess;
     Set<String> possibleGuessList = new HashSet<>();
 
     public HardComputer() {
@@ -50,10 +47,9 @@ public class HardComputer extends Computer {
     private void updatePossibleGuessList(int[] resultGuessVsSecretCode) {
         Set<String> newPossibleGuessList = new HashSet<>();
         for (String candidate : possibleGuessList) {
-            this.candidateGuess = candidate;
-            resultGuessVsCandidateGuess = CodeValidation.countBullsAndCows(currentGuess, candidateGuess);
+            int[] resultGuessVsCandidateGuess = CodeValidation.countBullsAndCows(currentGuess, candidate);
             if (resultGuessVsSecretCode[0] == resultGuessVsCandidateGuess[0] && resultGuessVsSecretCode[1] == resultGuessVsCandidateGuess[1]) {
-                newPossibleGuessList.add(candidateGuess);
+                newPossibleGuessList.add(candidate);
             }
         }
         possibleGuessList = newPossibleGuessList;
@@ -63,7 +59,7 @@ public class HardComputer extends Computer {
     }
 
     public void pruningProcess(int bulls, int cows) {
-        resultGuessVsSecretCode = new int[]{bulls, cows};
+        int[] resultGuessVsSecretCode = new int[]{bulls, cows};
         updatePossibleGuessList(resultGuessVsSecretCode);
     }
 }

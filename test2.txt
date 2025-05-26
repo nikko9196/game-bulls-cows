@@ -1,0 +1,26 @@
+Bulls & Cows Game's Result:
+Game mode: Single Player
+Alexis The Computer's secret code: 0159
+----------
+Turn 1:
+Nikko guessed 1234, scoring 0 bulls and 1 cows.
+----------
+Turn 2:
+Nikko guessed 2345, scoring 0 bulls and 1 cows.
+----------
+Turn 3:
+Nikko guessed 3456, scoring 1 bulls and 0 cows.
+----------
+Turn 4:
+Nikko guessed 3567, scoring 0 bulls and 1 cows.
+----------
+Turn 5:
+Nikko guessed 8159, scoring 3 bulls and 0 cows.
+----------
+Turn 6:
+Nikko guessed 8150, scoring 2 bulls and 1 cows.
+----------
+Turn 7:
+Nikko guessed 0159, scoring 4 bulls and 0 cows.
+----------
+Winner: Nikko.
