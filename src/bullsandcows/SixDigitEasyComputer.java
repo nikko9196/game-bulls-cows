@@ -16,7 +16,7 @@ public class SixDigitEasyComputer extends EasyComputer {
         try {
             codes = processFile("hexadecimals.txt");
         } catch (IOException e) {
-            System.out.println("Error at getSecretCode(): " + e.getMessage());
+            System.err.println("Error: " + e.getMessage());
             return null;
         }
 
@@ -33,9 +33,6 @@ public class SixDigitEasyComputer extends EasyComputer {
                 break;
             }
         }
-        // For testing
-        System.out.println("Size of 6-digit code list after validation: " + size);
-
         Random random = new Random();
         int randomIndex = random.nextInt(size);
         return hexaComputer.getCode(randomIndex);
@@ -56,7 +53,7 @@ public class SixDigitEasyComputer extends EasyComputer {
         } catch (FileNotFoundException e) {
             throw e;
         } catch (IOException e) {
-            System.out.println("Error at processFile(): " + e.getMessage());
+            System.err.println("Error: " + e.getMessage());
         }
         return codes;
     }
