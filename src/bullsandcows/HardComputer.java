@@ -8,9 +8,6 @@ public class HardComputer extends Computer {
 
     public HardComputer() {
         possibleGuessList = generatePossibleGuessList();
-        // Print out for testing:
-        System.out.println("***** possibleGuessList's size: " + possibleGuessList.size() + " *****");
-        System.out.println("***** First possibleGuessList: " + possibleGuessList);
     }
 
     // Generate possibleGuessList:
@@ -38,8 +35,6 @@ public class HardComputer extends Computer {
     @Override
     public String makeGuess() {
         this.currentGuess = getRandomGuess();
-        // Print out to test
-        System.out.println("***** Computer's currentGuess: " + currentGuess + " *****");
         return currentGuess;
     }
 
@@ -53,11 +48,9 @@ public class HardComputer extends Computer {
             }
         }
         possibleGuessList = newPossibleGuessList;
-        // Print out to test
-        System.out.println("***** possibleGuessList's size after each round: " + possibleGuessList.size() + " *****");
-        System.out.println("***** Updated possibleGuessList after each round: " + possibleGuessList + " *****");
     }
 
+    // Get the result of computer's guess and player's secret code to do the comparison and update the possibleGuessList:
     public void pruningProcess(int bulls, int cows) {
         int[] resultGuessVsSecretCode = new int[]{bulls, cows};
         updatePossibleGuessList(resultGuessVsSecretCode);

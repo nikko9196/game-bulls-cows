@@ -13,8 +13,6 @@ public class MediumComputer extends Computer {
             guess = generateGuessCode();
         }
         previousGuesses.add(guess);
-        // Print out - Use for testing:
-        System.out.println("***** List of previousGuess: " + previousGuesses + " *****");
         return guess;
     }
 }

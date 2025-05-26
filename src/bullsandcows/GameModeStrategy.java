@@ -3,9 +3,6 @@ package bullsandcows;
 import java.util.List;
 
 public abstract class GameModeStrategy {
-//    protected List<GuessRecord> guessRecords;
-//    protected String winner;
-//    protected String computerSecretCode;
 
     public abstract void play();
 
@@ -23,13 +20,16 @@ public abstract class GameModeStrategy {
 
             boolean isValidGuess;
 
+            // Check the entered guess for 6-digit code is valid or not:
             if (computer instanceof SixDigitEasyComputer) {
                 isValidGuess = CodeValidation.isValidCodeForSixDigitCode(humanGuess);
                 if (!isValidGuess) {
                     System.out.println("Your guess " + humanGuess + " is invalid. It should be exactly six unique characters, where the allowed characters are numbers, 0 - 9, and letters, a - f, and has no spacing. Please try again!");
                 }
 
-            } else {
+            }
+            // Check the entered guess for 4-digit code is valid or not:
+            else {
                 isValidGuess = CodeValidation.isValidCodeForFourDigitCode(humanGuess);
                 if (!isValidGuess) {
                     System.out.println("Your guess " + humanGuess + " is invalid. It should be a 4-digit number with all digits are unique, and has no spacing. Please try again!");

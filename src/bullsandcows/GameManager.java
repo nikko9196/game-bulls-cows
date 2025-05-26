@@ -14,7 +14,7 @@ public class GameManager {
 
         System.out.println("Hi " + namePlayer + ", I am " + Computer.DEFAULT_NAME + ". Let's play the Bulls & Cows game together!");
 
-        // Choose the option for game mode and game level to start the game:
+        // Choose the option for game mode, digit code options and game level to start the game:
         String gameModeInput;
         while (true) {
             System.out.println("Please choose your game mode:");
@@ -51,8 +51,8 @@ public class GameManager {
                 digitOptionEasyComputer = new SixDigitEasyComputer();
             }
 
-            // Test if the player chooses to play with 6-character code:
-            // If the game cannot find the file meaning no secret code is retrieved, return to the beginning of the game.
+            // Check if the player chooses to play with 6-character code:
+            // If the game cannot find the hexadecimals.txt file meaning no secret code is retrieved, return to the beginning of the game.
             if (!digitOptionEasyComputer.isSecretCodeAvailable()) {
                 System.out.println("There is a problem to generate the secret code. Returning to the main menu ...");
                 System.out.println("--------------------------------------------");
