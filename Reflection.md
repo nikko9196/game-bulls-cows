@@ -46,11 +46,11 @@ When testing the `HexaComputer` class, these are cases that I tried to cover:
     - Code has fewer than 6 digits: In this case, code only has 5 digits. Eg. “12345”.
     - Code has more than 6 digits: In this case, code has 7 digits. Eg. “1234567”.
     - Code has characters outside the hexadecimal range (from ‘a’ to ‘f’): Eg. “12345z” with ‘z’ character is invalid.
-    - Code with a blank space in between digits/characters: Eg. “1234 5”.
+    - Code with a blank space in between digits/characters: Eg. “1234 5”, "abcd f".
     - Code with duplicated digits. Eg. “a12344”.
     - Code with duplicated characters. Eg. “aa1234”.
     - Code with special characters (including the arithmetic operators such as + or -). Eg. “@12345”, “+12345”, “-12345”.
-    - Code with all UPPERCASE letters or mixed UPPERCASE and digits. Eg. “ABCDEF”, “ABC123”.
+    - Code with all UPPERCASE letters or mixed UPPERCASE, lowercase and digits. Eg. “ABCDEF”, “ABC123”, "Abc123".
 - **testAllValidCodesPassValidation()**: I tried to create a list including those valid codes (6-digit secret code like “012345” and “456789”, 6-character secret code like “abcdef”, and mixed 6-character/digit secret code like “123abc”). All of these passed the validation checks in the `HexaComputer` class and were added to the validated code list. The `getCode()` method successfully retrieves the codes based on their indices.
 - **testValidCodesMixedInvalidCodes()**: This test uses a mixed list of valid and invalid codes: "@12345", "012345", "12345", "456789", "1234567", "abcdef", "12345z", "123abc". Out of these, only four codes ("012345", "456789", "abcdef", and "123abc") pass the validation and are added to the validated list. The `getCode()` method can retrieve these codes using index values from 0 to 3.
 - **testGetCodeThrowIndexOutOfBoundsException()**: I used a list of valid and invalid codes: "edf456", "123abc", and "1234567". Only two of them ("edf456" and "123abc") are valid and get added to the list. Therefore, we can only retrieve the code based on the index respectively (index: from 0 to 1). I tested two scenarios:
@@ -105,11 +105,11 @@ My final implementation differs significantly from the initial design in Part A,
 - This shift was based on Jordan’s feedback, and I’m really grateful for that advice. As I progressed through the assignment, I realised how much easier it became to add new features—such as introducing `HardComputer` or allowing the game to support a 6-digit secret code.
 
 **This improvement also reflects good separation of concerns: Each class has a clear and distinct responsibility.**
-- As a result, adding new features doesn’t require major changes to existing code. For example, if I want to add a new difficulty level or allow SinglePlayer to support a 6-digit code, I can do that without affecting the functionality of existing components like `EasyComputer` and `MediumComputer`. 
+- As a result, adding new features doesn’t require major changes to existing code. For example, if I want to add a new difficulty level or allow `SinglePlayer` to support a 6-digit code, I can do that without affecting the functionality of existing components like `EasyComputer` and `MediumComputer`. 
 - Even the `GameLog` and `GameManager` features I originally built in Part A to ask players whether they want to save their game results still work as expected with the new features (adding `HardComputer` or playing with 6-digit code) in Part B, despite the fact that saving results wasn’t a requirement in this part of the assignment.
 
 **That said, one limitation I encountered was not being allowed to modify `HexaComputer.java`. This restriction made it harder to reuse some logic cleanly.** 
-- As a result, I had to duplicate some of the validation logic for 6-digit codes that already existed in `HexaComputer.java` into `CodeValidation.java` **(Mentioned in the answer for Question 1)**. This redundancy is not ideal and slightly weakens the overall quality of my implementation.
+- As a result, I had to duplicate some of the validation logic for 6-digit codes that already existed in `HexaComputer.java` (from line 30 to 46) into `CodeValidation.java` (from line 62 to 78) **(Mentioned in the answer for Question 1)**. This redundancy is not ideal and slightly weakens the overall quality of my implementation.
 - Additionally, because I couldn’t add new methods like `getSize()` in `HexaComputer.java` to retrieve the size of the validated codes list, I had to implement extra code inside my `SixDigitEasyComputer` class. Specifically, I needed to calculate the total number of validated codes manually in order to perform a random selection of the secret code after validation. This workaround added unnecessary complexity and further highlights the limitations caused by the inability to modify `HexaComputer.java`.
 
 _________________
@@ -118,7 +118,7 @@ Similar as I mentioned in Part A of Assignment 2, I continued to use ChatGPT as 
 
 The external resources I used for Part B of Assignment 2 include:
 - **Lecture recordings and slides:** I consistently reviewed lessons, revisited my annotated slides, and referenced examples shared in lectures. I adapted and modified these examples to fit my coding scenarios, which helped me better understand the concepts and apply them correctly in the assignment.
-- **Week 8 - Tuesday lecture by Yu-Cheng:** I re-watched the session where Yu-Cheng introduced Assignment 2B and demonstrated **Task 3 – Hard AI**. Based on her detailed explanation of how the HardAI example works step-by-step, I was able to gradually build the logic needed to solve **Task 3**. This clear walkthrough helped me understand the process thoroughly, which in turn guided me to design my UML diagram with the necessary fields and methods to implement that logic effectively.
+- **Week 8 - Tuesday lecture by Yu-Cheng:** I re-watched the session where Yu-Cheng introduced Assignment 2B and demonstrated **Task 3 – Hard AI**. Based on her detailed explanation of how the **HardAI** example works step-by-step, I was able to gradually build the logic needed to solve **Task 3**. This clear walkthrough helped me understand the process thoroughly, which in turn guided me to design my UML diagram with the necessary fields and methods to implement that logic effectively.
 - **Lab exercises:** I reviewed Lab 12 to study the example test case provided for `RobotTest`. By examining how the test was written and what cases it covered, I was able to learn effective testing techniques. I then applied this understanding to **Task 4** by writing tests for `HexaComputer.java` based on those principles.
 - **IntelliJ with AI assistant for code writing:** As I mentioned in Assignment 2A, IntelliJ continued to be a valuable assistant. Beyond auto-completing code snippets and speeding up my coding, it also highlighted duplicated code sections, helping me stay aware and avoid redundancy. Additionally, IntelliJ suggested when some fields I created were unnecessary and recommended using local variables instead, which helped me write cleaner and more efficient code.
 
