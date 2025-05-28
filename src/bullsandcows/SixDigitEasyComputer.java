@@ -16,7 +16,8 @@ public class SixDigitEasyComputer extends EasyComputer {
         try {
             codes = processFile("hexadecimals.txt");
         } catch (IOException e) {
-            System.err.println("Error: " + e.getMessage());
+            // For developer: to console log the error:
+            //System.err.println("Error: " + e.getMessage());
             return null;
         }
 
@@ -53,7 +54,8 @@ public class SixDigitEasyComputer extends EasyComputer {
         } catch (FileNotFoundException e) {
             throw e;
         } catch (IOException e) {
-            System.err.println("Error: " + e.getMessage());
+            // For developer: to console log the error:
+            //System.err.println("Error: " + e.getMessage());
         }
         return codes;
     }
