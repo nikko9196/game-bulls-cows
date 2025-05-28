@@ -27,7 +27,7 @@ public class TestHexaComputer {
 
     @Test
     public void testAllInvalidCodesThrowException() {
-        List<String> allInvalidCodes = Arrays.asList("12345", "1234567", "12345z", "1234 5", "a12344", "aa1234", "@12345", "+12345", "-12345", "ABCDEF", "ABC123");
+        List<String> allInvalidCodes = Arrays.asList("12345", "1234567", "12345z", "1234 5", "abcd f", "a12344", "aa1234", "@12345", "+12345", "-12345", "ABCDEF", "ABC123", "Abc123");
         assertThrows(IllegalArgumentException.class, () -> new HexaComputer(allInvalidCodes));
     }
 
