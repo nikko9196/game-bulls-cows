@@ -134,3 +134,8 @@ If I have time to extend this assignment, I have some ideas that I would do:
      - Improve feedback messages for invalid guesses by separating them in different scenarios, such as when a user enters duplicate characters/digits or when the guess length is shorter or longer than expected.
 2. **Adding a Time Challenge mode:** For example, giving the player 60 seconds and 7 attempts to guess the secret code in `SinglePlayer` mode.
 3. **Implementing a Leaderboard feature:** Track and display records for fastest wins or fewest attempts to complete the game.
+
+_________________
+### Extra note for my Reflection:
+Similar to Assignment 2A, I prepared a checklist to help me keep track of the game flow and to test how the game handles invalid inputs during gameplay using the console. The screenshot below shows the checklist:
+![Screenshot 5 - Final Testing (Checklist).png](Screenshot%205%20-%20Final%20Testing%20%28Checklist%29.png)
