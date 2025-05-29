@@ -15,18 +15,18 @@ public class TestHexaComputer {
     @Test
     public void testNullCodeListThrowException() {
         List<String> codes = null;
-        assertThrows(IllegalArgumentException.class, () -> new HexaComputer(codes));
+        assertThrowsExactly(IllegalArgumentException.class, () -> new HexaComputer(codes));
     }
 
     @Test
     public void testEmptyCodeListThrowException() {
-        assertThrows(IllegalArgumentException.class, () -> new HexaComputer(Collections.emptyList()));
+        assertThrowsExactly(IllegalArgumentException.class, () -> new HexaComputer(Collections.emptyList()));
     }
 
     @Test
     public void testAllInvalidCodesThrowException() {
         List<String> allInvalidCodes = Arrays.asList("12345", "1234567", "12345z", "1234 5", "abcd f", "a12344", "aa1234", "@12345", "+12345", "-12345", "ABCDEF", "ABC123", "Abc123");
-        assertThrows(IllegalArgumentException.class, () -> new HexaComputer(allInvalidCodes));
+        assertThrowsExactly(IllegalArgumentException.class, () -> new HexaComputer(allInvalidCodes));
     }
 
     @Test
@@ -53,10 +53,10 @@ public class TestHexaComputer {
     public void testGetCodeThrowIndexOutOfBoundsException() {
         List<String> codes = Arrays.asList("edf456", "123abc", "1234567");
         hexaComputer = new HexaComputer(codes);
-        assertThrows(IndexOutOfBoundsException.class, () -> hexaComputer.getCode(-1));
+        assertThrowsExactly(IndexOutOfBoundsException.class, () -> hexaComputer.getCode(-1));
         assertEquals("edf456", hexaComputer.getCode(0));
         assertEquals("123abc", hexaComputer.getCode(1));
-        assertThrows(IndexOutOfBoundsException.class, () -> hexaComputer.getCode(2));
+        assertThrowsExactly(IndexOutOfBoundsException.class, () -> hexaComputer.getCode(2));
     }
 
 
