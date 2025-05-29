@@ -1,9 +1,7 @@
 package bullsandcows;
 
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
@@ -52,7 +50,7 @@ public class TestHexaComputer {
     }
 
     @Test
-    public void testGetCodeThrowIndexOutOfBoundsException(){
+    public void testGetCodeThrowIndexOutOfBoundsException() {
         List<String> codes = Arrays.asList("edf456", "123abc", "1234567");
         hexaComputer = new HexaComputer(codes);
         assertThrows(IndexOutOfBoundsException.class, () -> hexaComputer.getCode(-1));
