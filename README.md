@@ -16,7 +16,7 @@ This project demonstrates:
 
 Bulls & Cows is a code-breaking game where players attempt to guess a secret code within a limited number of attempts.
 
-The game supports both Single Player and Player vs Computer modes, multiple computer difficulty levels (Easy, Medium, and Hard), and both four-digit and six-digit hexadecimal secret codes.
+The game supports both Single Player and Player vs Computer modes. Single Player mode supports both four-digit numeric codes and six-digit hexadecimal codes, while Player vs Computer mode supports four-digit numeric codes with Easy, Medium, and Hard computer difficulty levels.
 
 Additional features include game result logging, file-based secret code generation for hexadecimal mode, and automated unit testing for code validation components.
 
@@ -65,7 +65,7 @@ game-bulls-cows/
 |   |         |-- ...                     # Additional classes supporting game logic and functionality.
 |-- test/
 |   |   |-- bullsandcows/
-|   |         |-- TextHexaComputer.java   # JUnit 5 unit tests for HexaComputer validation and retrieval logic.
+|   |         |-- TestHexaComputer.java   # JUnit 5 unit tests for HexaComputer validation and retrieval logic.
 |-- hexadecimals.txt                      # Source file containing hexadecimal codes for six-digit game mode.
 |-- pom.xml                               # Maven project configuration and dependency management.
 |-- README.md
@@ -84,7 +84,7 @@ Available code formats:
 
 The six-digit mode loads secret codes from an external file and includes validation and error handling for invalid or missing data:
 
-- Six-digit mode loads secret codes from `hexadecimals.txt`.
+- The six-digit mode loads secret codes from `hexadecimals.txt`.
 - This mode includes:
   - File-based code loading.
   - Hexadecimal code validation.
@@ -117,7 +117,8 @@ The game validates:
 - Yes/No responses.
 - Four-digit codes.
 - Six-digit hexadecimal codes.
-  Invalid inputs are rejected with user-friendly feedback.
+
+Invalid inputs are rejected with user-friendly feedback.
 
 ### Game Result Logging
 
@@ -140,7 +141,8 @@ The original UML design focused on:
 - Player VS Computer mode
 - Both with 4-digit secret codes.
 - Difficulty level: Easy and Medium.
-  ![UML Class Diagram - Initial Design](./docs/diagrams/UML Diagram_Initial Design.png)
+
+![UML Class Diagram - Initial Design](./docs/diagrams/UML_Diagram_InitialDesign.png)
 
 ### Extended Design
 
@@ -148,10 +150,11 @@ The final design introduced:
 
 - Additional difficulty level: Hard.
 - New 6-digit secret codes.
-- HexaComputer integration.
+- `HexaComputer` integration.
 - Improved inheritance hierarchy.
-- Refactored GameModeStrategy architecture.
-  ![UML Class Diagram - Extended Design](./docs/diagrams/UML Diagram_Initial Design.png)
+- Refactored `GameModeStrategy` architecture.
+
+![UML Class Diagram - Extended Design](./docs/diagrams/UML_Diagram_ExtendedDesign.png)
 
 ## Running Unit Tests
 
