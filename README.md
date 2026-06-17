@@ -12,6 +12,8 @@ This project demonstrates:
 - File Handling.
 - The development of extensible game modes and multiple computer difficulty levels.
 
+![UI Console of Bulls & Cows at the beginning.](./docs/screenshots/Bulls&Cows_Starting.png)
+
 ## Overview
 
 Bulls & Cows is a code-breaking game where players attempt to guess a secret code within a limited number of attempts.
@@ -131,6 +133,8 @@ Saved information includes:
 - Bulls and Cows results
 - Winner
 
+![UI Console of Bulls & Cows when game ends.](./docs/screenshots/Bulls&Cows_Ending.png)
+
 ## UML Design Evolution
 
 ### Initial Design
@@ -174,3 +178,5 @@ Alternatively, use Maven:
 ```bash
 mvn test
 ```
+
+![Bulls & Cows: Running the tests](./docs/screenshots/Bulls&Cows_Testing.png)
